@@ -709,6 +709,7 @@ function uploadBatch(
         users.length == vestingMonths.length,
         "Length mismatch"
     );
+    require(!vestingStarted, "Vesting already started, cannot upload batch now");
 
     for (uint256 i = 0; i < users.length; i++) {
         address user = users[i];
